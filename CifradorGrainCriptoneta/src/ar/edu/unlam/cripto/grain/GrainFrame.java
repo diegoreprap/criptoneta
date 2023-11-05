@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.SystemColor;
 
 public class GrainFrame extends JFrame {
 
@@ -49,6 +50,7 @@ public class GrainFrame extends JFrame {
 	}
 
 	public GrainFrame() {
+		setBackground(SystemColor.text);
 		setFont(new Font("Dialog", Font.BOLD, 12));
 		setTitle("GRAIN V1 - 80 bits");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,7 +112,7 @@ public class GrainFrame extends JFrame {
 		txtFieldKey = new JTextField();
 		txtFieldKey.setText("1234567890");
 		txtFieldKey.setToolTipText("");
-		txtFieldKey.setBounds(370, 422, 99, 20);
+		txtFieldKey.setBounds(370, 411, 100, 30);
 		contentPane.add(txtFieldKey);
 		txtFieldKey.setColumns(10);
 
@@ -128,7 +130,7 @@ public class GrainFrame extends JFrame {
 
 		txtFieldSeed = new JTextField();
 		txtFieldSeed.setText("12345678");
-		txtFieldSeed.setBounds(370, 450, 99, 20);
+		txtFieldSeed.setBounds(370, 450, 100, 30);
 		contentPane.add(txtFieldSeed);
 		txtFieldSeed.setColumns(10);
 
@@ -248,7 +250,7 @@ public class GrainFrame extends JFrame {
 				imageByteArray = null;
 			}
 		});
-		btnClear.setBounds(288, 482, 118, 23);
+		btnClear.setBounds(288, 484, 181, 23);
 		contentPane.add(btnClear);
 
 		JButton btnDefaultValues = new JButton("Valores iniciales");
@@ -258,15 +260,15 @@ public class GrainFrame extends JFrame {
 				txtFieldSeed.setText("12345678");
 			}
 		});
-		btnDefaultValues.setBounds(285, 506, 155, 23);
+		btnDefaultValues.setBounds(288, 513, 181, 23);
 		contentPane.add(btnDefaultValues);
 		
-		JLabel lblInstrucciones = new JLabel("<html><B>Modo de uso:</B><BR><BR>Miño, Maximiliano Alexander<BR>Vernet, Federico<BR>Oria, Matias<BR>Corcione, Luciano Ismael<BR>Lo Giudice, Diego Andrés</html>");
+		JLabel lblInstrucciones = new JLabel("<html><B>Modo de uso:</B><BR><BR>1) Seleccionar imagen<BR>2) Ingresar clave<BR>3) Ingresar semilla<BR>4) Cifrar/descifrar imagen<BR>5) Guardar imagen<BR><BR>asdasd</html>");
 		lblInstrucciones.setVerticalAlignment(SwingConstants.TOP);
 		lblInstrucciones.setToolTipText("");
 		lblInstrucciones.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInstrucciones.setFont(new Font("DialogInput", Font.BOLD, 16));
-		lblInstrucciones.setBounds(274, 183, 296, 161);
+		lblInstrucciones.setBounds(274, 183, 296, 181);
 		contentPane.add(lblInstrucciones);
 
 	}

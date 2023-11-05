@@ -19,7 +19,7 @@ public class KeystreamGenerator {
 			}
 
 		} else {
-			throw new Exception("Longitud de la clave: " + key.length + ". Longitud requerida: " + KEY_LONG);
+			throw new Exception("Longitud de la clave: " + key.length + ". Longitud requerida: " + KEY_LONG + " bits.");
 		}
 
 		if (seed.length == SEED_LONG) {
@@ -28,14 +28,13 @@ public class KeystreamGenerator {
 				this.seed[i] = seed[i];
 			}
 		} else {
-			throw new Exception("Longitud de la semilla: " + seed.length + ". Longitud requerida: " + SEED_LONG);
+			throw new Exception(
+					"Longitud de la semilla: " + seed.length + ". Longitud requerida: " + SEED_LONG + " bits.");
 		}
 
 		this.lfsr = new short[KEY_LONG];
 		this.nfsr = new short[KEY_LONG];
-
 		init();
-
 	}
 
 	private void init() {

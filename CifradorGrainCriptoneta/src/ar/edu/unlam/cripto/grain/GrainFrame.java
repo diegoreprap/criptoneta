@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class GrainFrame extends JFrame {
 
@@ -50,11 +51,13 @@ public class GrainFrame extends JFrame {
 	}
 
 	public GrainFrame() {
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(GrainFrame.class.getResource("/ar/edu/unlam/cripto/icon/padlock_872x1024.png")));
 		setBackground(SystemColor.text);
 		setFont(new Font("Dialog", Font.BOLD, 12));
-		setTitle("GRAIN V1 - 80 bits");
+		setTitle("CRIPTONETA - GRAIN V1 - 80 bits");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 584, 604);
+		setBounds(100, 100, 590, 608);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,17 +66,17 @@ public class GrainFrame extends JFrame {
 		setResizable(false);
 
 		JLabel lblAlumnos = new JLabel(
-				"<html><B>Alumnos:</B><BR><BR>Miño, Maximiliano Alexander<BR>Vernet, Federico<BR>Oria, Matias<BR>Corcione, Luciano Ismael<BR>Lo Giudice, Diego Andrés</html>");
+				"<html><B>Alumnos:</B><BR><BR>- Miño, Maximiliano Alexander<BR>- Vernet, Federico<BR>- Oria, Matias<BR>- Corcione, Luciano Ismael<BR>-  Lo Giudice, Diego Andrés</html>");
 		lblAlumnos.setVerticalAlignment(SwingConstants.TOP);
 		lblAlumnos.setToolTipText("");
-		lblAlumnos.setFont(new Font("DialogInput", Font.BOLD, 16));
+		lblAlumnos.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblAlumnos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAlumnos.setBounds(274, 10, 296, 161);
+		lblAlumnos.setBounds(278, 28, 296, 161);
 		contentPane.add(lblAlumnos);
 
 		JPanel panelImagenInicial = new JPanel();
 		panelImagenInicial.setBorder(new LineBorder(Color.DARK_GRAY));
-		panelImagenInicial.setBounds(20, 10, 250, 250);
+		panelImagenInicial.setBounds(24, 12, 250, 250);
 		panelImagenInicial.setBackground(Color.WHITE);
 		contentPane.add(panelImagenInicial);
 		panelImagenInicial.setLayout(null);
@@ -86,7 +89,7 @@ public class GrainFrame extends JFrame {
 
 		JPanel panelImagenFinal = new JPanel();
 		panelImagenFinal.setBorder(new LineBorder(Color.DARK_GRAY));
-		panelImagenFinal.setBounds(20, 290, 250, 250);
+		panelImagenFinal.setBounds(24, 292, 250, 250);
 		panelImagenFinal.setBackground(Color.WHITE);
 		contentPane.add(panelImagenFinal);
 		panelImagenFinal.setLayout(null);
@@ -97,40 +100,30 @@ public class GrainFrame extends JFrame {
 		panelImagenFinal.revalidate();
 		panelImagenFinal.repaint();
 
-		JLabel lblClave = new JLabel("Clave");
+		JLabel lblClave = new JLabel("Clave - 80 bits");
 		lblClave.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblClave.setHorizontalAlignment(SwingConstants.CENTER);
-		lblClave.setBounds(274, 424, 83, 14);
+		lblClave.setVerticalAlignment(SwingConstants.CENTER);
+		lblClave.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblClave.setBounds(314, 379, 120, 22);
 		contentPane.add(lblClave);
-
-		JLabel lblNewLabel = new JLabel("(10 caracteres)");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 9));
-		lblNewLabel.setBounds(471, 426, 99, 14);
-		contentPane.add(lblNewLabel);
 
 		txtFieldKey = new JTextField();
 		txtFieldKey.setText("1234567890");
 		txtFieldKey.setToolTipText("");
-		txtFieldKey.setBounds(370, 411, 100, 30);
+		txtFieldKey.setBounds(448, 379, 100, 30);
 		contentPane.add(txtFieldKey);
 		txtFieldKey.setColumns(10);
 
-		JLabel lblSemilla = new JLabel("Semilla");
+		JLabel lblSemilla = new JLabel("Semilla - 64 bits");
 		lblSemilla.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSemilla.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSemilla.setBounds(270, 452, 99, 14);
+		lblSemilla.setVerticalAlignment(SwingConstants.CENTER);
+		lblSemilla.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSemilla.setBounds(314, 413, 120, 22);
 		contentPane.add(lblSemilla);
-
-		JLabel lblCaracteres = new JLabel("(8 caracteres)");
-		lblCaracteres.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCaracteres.setFont(new Font("Tahoma", Font.ITALIC, 9));
-		lblCaracteres.setBounds(471, 454, 99, 14);
-		contentPane.add(lblCaracteres);
 
 		txtFieldSeed = new JTextField();
 		txtFieldSeed.setText("12345678");
-		txtFieldSeed.setBounds(370, 450, 100, 30);
+		txtFieldSeed.setBounds(448, 414, 100, 30);
 		contentPane.add(txtFieldSeed);
 		txtFieldSeed.setColumns(10);
 
@@ -158,7 +151,7 @@ public class GrainFrame extends JFrame {
 					} catch (IOException e) {
 						JOptionPane.showMessageDialog(GrainFrame.this, "Error al abrir la imagen para cifrar", "Error",
 								JOptionPane.ERROR_MESSAGE);
-						e.printStackTrace();
+						// e.printStackTrace();
 					}
 
 					ImageIcon imageIcon = new ImageIcon(initialImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH));
@@ -169,14 +162,14 @@ public class GrainFrame extends JFrame {
 				}
 			}
 		});
-		btnAbrirImagen.setBounds(20, 263, 250, 23);
+		btnAbrirImagen.setBounds(24, 265, 250, 23);
 		contentPane.add(btnAbrirImagen);
 
 		JButton btnGuardarImagen = new JButton("Guardar imagen");
 		btnGuardarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (finalImage == null) {
-					JOptionPane.showMessageDialog(null, "Debe cifrar una imagen para poder guardarla",
+					JOptionPane.showMessageDialog(null, "Primero debe cifrar una imagen para luego poder guardarla",
 							"Imagen inválida", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
@@ -191,32 +184,34 @@ public class GrainFrame extends JFrame {
 
 				try {
 					ImageIO.write(finalImage, "bmp", file);
+				} catch (IllegalArgumentException i) {
+					// e.printStackTrace();
 				} catch (IOException e) {
-					e.printStackTrace();
+					// e.printStackTrace();
 				}
 			}
 		});
-		btnGuardarImagen.setBounds(20, 542, 250, 23);
+		btnGuardarImagen.setBounds(24, 544, 250, 23);
 		contentPane.add(btnGuardarImagen);
 
 		JButton btnCifrarDescifrar = new JButton("Cifrar / Descifrar");
 		btnCifrarDescifrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (txtFieldKey.getDocument().getLength() != 10) {
-					JOptionPane.showMessageDialog(null, "La clave debe ser de 10 caracteres", "Clave inválida",
+					JOptionPane.showMessageDialog(null, "La clave debe ser de 80 bits, 10 caracteres", "Clave inválida",
 							JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 
 				if (txtFieldSeed.getDocument().getLength() != 8) {
-					JOptionPane.showMessageDialog(null, "La semilla debe ser de 8 caracteres", "Semilla inválida",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "La semilla debe ser de 64 bits, 8 caracteres",
+							"Semilla inválida", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 
 				if (initialImage == null) {
-					JOptionPane.showMessageDialog(null, "Debe cargar una imagen para cifrar", "Imagen inválida",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Debe cargar una imagen para cifrar o descifrar",
+							"Imagen inválida", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 
@@ -235,7 +230,7 @@ public class GrainFrame extends JFrame {
 				lblImagenFinal.setIcon(imageIcon);
 			}
 		});
-		btnCifrarDescifrar.setBounds(288, 542, 181, 23);
+		btnCifrarDescifrar.setBounds(314, 533, 181, 23);
 		contentPane.add(btnCifrarDescifrar);
 
 		JButton btnClear = new JButton("Borrar todo");
@@ -250,7 +245,7 @@ public class GrainFrame extends JFrame {
 				imageByteArray = null;
 			}
 		});
-		btnClear.setBounds(288, 484, 181, 23);
+		btnClear.setBounds(314, 475, 181, 23);
 		contentPane.add(btnClear);
 
 		JButton btnDefaultValues = new JButton("Valores iniciales");
@@ -260,15 +255,16 @@ public class GrainFrame extends JFrame {
 				txtFieldSeed.setText("12345678");
 			}
 		});
-		btnDefaultValues.setBounds(288, 513, 181, 23);
+		btnDefaultValues.setBounds(314, 504, 181, 23);
 		contentPane.add(btnDefaultValues);
-		
-		JLabel lblInstrucciones = new JLabel("<html><B>Modo de uso:</B><BR><BR>1) Seleccionar imagen<BR>2) Ingresar clave<BR>3) Ingresar semilla<BR>4) Cifrar/descifrar imagen<BR>5) Guardar imagen<BR><BR>asdasd</html>");
+
+		JLabel lblInstrucciones = new JLabel(
+				"<html><B>Modo de uso:</B><BR><BR>1) Abrir imagen<BR>2) Ingresar clave<BR>3) Ingresar semilla<BR>4) Cifrar / Descifrar imagen<BR>5) Guardar imagen<BR><BR></html>");
 		lblInstrucciones.setVerticalAlignment(SwingConstants.TOP);
 		lblInstrucciones.setToolTipText("");
 		lblInstrucciones.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInstrucciones.setFont(new Font("DialogInput", Font.BOLD, 16));
-		lblInstrucciones.setBounds(274, 183, 296, 181);
+		lblInstrucciones.setFont(new Font("Monospaced", Font.PLAIN, 16));
+		lblInstrucciones.setBounds(278, 202, 296, 161);
 		contentPane.add(lblInstrucciones);
 
 	}
